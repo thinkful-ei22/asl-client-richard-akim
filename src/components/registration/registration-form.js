@@ -1,6 +1,11 @@
 import React from 'react';
-import {Field, reduxForm} from 'redux-form';
+import {Field, reduxForm, focus} from 'redux-form';
 import {registerUser} from '../../actions/users';
+import Input from './input';
+import {required, nonEmpty, matches, length, isTrimmed} from '../validators';
+const usernameLength = length({max: 15});
+const passwordLength = length({min: 10, max: 72});
+const matchesPassword = matches('password');
 
 export class RegistrationForm extends React.Component {
   onSubmit(values) {
@@ -72,25 +77,38 @@ export class RegistrationForm extends React.Component {
         <Field component={this.renderField}  type="text" name="password" />
         <label htmlFor="name">Confrim Password</label>
         <Field component={this.renderField} type="text" name="passwordConfirm" /> */}
-        <div>
-          <label htmlFor="name">Name</label>
-          <Field name="name" 
-            component="input"
-            type="text" 
-          />
-        </div>
-        <div>
-          <label htmlFor="username">Username</label>
-          <Field component="input" type="text" name="username" />
-        </div>
-        <div>
-          <label htmlFor="password">Password</label>
-          <Field component="input"  type="text" name="password" />
-        </div>
-        <div>
-          <label htmlFor="name">Confrim Password</label>
-          <Field component="input" type="text" name="passwordConfirm" />
-        </div>
+        <label htmlFor="name">Name</label>
+        <Field 
+          name="name" 
+          component={Input}
+          type="text"
+          validate={[required]} 
+        />
+
+        <label htmlFor="username">Username</label>
+        <Field 
+          component={Input} 
+          type="text" 
+          name="username" 
+          validate={[required, nonEmpty, isTrimmed, usernameLength]}
+        />
+
+        <label htmlFor="password">Password</label>
+        <Field 
+          component={Input}  
+          type="text" 
+          name="password" 
+          validate={[required, passwordLength, isTrimmed]}
+        />
+
+        <label htmlFor="name">Confrim Password</label>
+        <Field 
+          component={Input} 
+          type="text" 
+          name="passwordConfirm"
+          validate={[required, nonEmpty, matchesPassword]} 
+        />
+
         <button type="button" disabled={pristine || submitting} onClick={reset}>Register</button>
       </form>
     );
@@ -99,6 +117,7 @@ export class RegistrationForm extends React.Component {
 
 export default reduxForm({
   form: 'registration',
-  validate: this.validate
+  onSubmitFail: (errors, dispatch) =>
+    dispatch(focus('registration', Object.keys(errors)[0]))
 })(RegistrationForm);
 
