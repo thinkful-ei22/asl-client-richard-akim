@@ -1,6 +1,6 @@
 import React from "react";
 
-function NavBar(props) {
+export default function(props) {
   return (
     <nav className="nav navBar">
       <h1 className="nav-header nav">
@@ -24,5 +24,3 @@ function NavBar(props) {
     </nav>
   );
 }
-
-export default NavBar;
