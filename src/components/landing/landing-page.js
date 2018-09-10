@@ -1,16 +1,9 @@
 import React from 'react';
-
-import NavBar from '../navbar';
+import {Link} from 'react-router-dom';
 
 export function LandingPage(props) {
   return (
     <div>
-      {/* <NavBar
-        links={[
-          { name: 'Login', href: 'http://localhost:3000/login' },
-          { name: 'Register', href: 'http://localhost:3000/register'}
-        ]} */}
-      />
       <main>
         <div>
           <img
@@ -27,6 +20,7 @@ export function LandingPage(props) {
           you'll reinforce your knowledge of <strong>ASL</strong>, and be able
           to see your progress!
         </p>
+        <Link to='/register'>Not a member? Register now!</Link>
       </main>
     </div>
   );
