@@ -3,7 +3,7 @@ import React from 'react';
 // import {Link, Redirect} from 'react-router-dom';
 import RegistrationForm from './registration-form';
 
-export function RegistrationPage(props) {
+export default function RegistrationPage(props) {
   return (
     <div>
       <h2>Register for uh<strong>sign</strong>ment</h2>

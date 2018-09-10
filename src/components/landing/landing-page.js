@@ -6,13 +6,16 @@ export function LandingPage(props) {
   return (
     <div>
       <NavBar
-        links={[{ name: "Login", href: "http://localhost:3000/login" }]}
+        links={[
+          { name: "Login", href: "http://localhost:3000/login" },
+          { name: "Register", href: "http://localhost:3000/register"}
+        ]}
       />
       <main>
         <div>
           <img
             src="../images/landing-page-pic.jpg"
-            alt="Picture of miniature brain in hand"
+            alt="miniature brain in hand"
           />
         </div>
         <p className="ad-paragraph">
