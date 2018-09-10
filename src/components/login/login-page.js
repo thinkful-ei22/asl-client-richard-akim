@@ -1,33 +1,26 @@
 import React from "react";
 import NavBar from "../navbar";
+import { connect } from "react-redux";
 
-export default function(props) {
-  return (
-    <div>
-      <NavBar links={[{ name: "Home", href: "http://localhost:3000/" }]} />
-      <main>
-        <form>
-          <label for="name">Name</label>
-          <input type="text" name="name" id="name" />
-          <br />
+import LoginForm from "./login-form";
 
-          <label for="user">Username</label>
-          <input type="text" name="username" id="username" />
-          <br />
+class LoginPage extends React.Component {
+  constructor(props) {
+    super(props);
+    this.username = React.createRef();
+    this.password = React.createRef();
+  }
 
-          <label for="password">Password</label>
-          <input type="text" name="password" id="password" />
-          <br />
-
-          <label for="confirm-password">Confirm Your Password</label>
-          <input type="text" name="confirm-password" id="confirm-password" />
-          <br />
-
-          <button type="submit" name="login">
-            Login
-          </button>
-        </form>
-      </main>
-    </div>
-  );
+  render() {
+    return (
+      <div>
+        <NavBar links={[{ name: "Home", href: "http://localhost:3000/" }]} />
+        <main>
+          <LoginForm />
+        </main>
+      </div>
+    );
+  }
 }
+
+export default connect(null)(LoginPage);
