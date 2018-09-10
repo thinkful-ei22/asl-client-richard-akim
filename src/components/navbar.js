@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 export default function(props) {
   const listLinks = props.links.map(link => {
@@ -11,10 +11,10 @@ export default function(props) {
   return (
     <nav className="nav navBar">
       <h1 className="nav-header nav">
-        {" "}
+        {' '}
         uh
         <strong>SIGN</strong>
-        ment!{" "}
+        ment!{' '}
       </h1>
       {/* This link container will take an array of objects, with href and name
       keys to generate links.

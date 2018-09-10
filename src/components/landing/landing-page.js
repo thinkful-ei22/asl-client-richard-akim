@@ -1,15 +1,15 @@
-import React from "react";
+import React from 'react';
 
-import NavBar from "../navbar";
+import NavBar from '../navbar';
 
 export function LandingPage(props) {
   return (
     <div>
-      <NavBar
+      {/* <NavBar
         links={[
-          { name: "Login", href: "http://localhost:3000/login" },
-          { name: "Register", href: "http://localhost:3000/register"}
-        ]}
+          { name: 'Login', href: 'http://localhost:3000/login' },
+          { name: 'Register', href: 'http://localhost:3000/register'}
+        ]} */}
       />
       <main>
         <div>
@@ -19,7 +19,7 @@ export function LandingPage(props) {
           />
         </div>
         <p className="ad-paragraph">
-          {" "}
+          {' '}
           Welcome to uh-SIGN-ment! A learning app designed to teach you the
           basics of American Sign Language! We've built this application with
           the best learning techniques in mind to help you retain as much
