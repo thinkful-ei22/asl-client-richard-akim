@@ -12,7 +12,7 @@ export function LandingPage(props) {
         <div>
           <img
             src="../images/landing-page-pic.jpg"
-            alt="Picture of miniature brain in hand"
+            alt="miniature brain in hand"
           />
         </div>
         <p className="ad-paragraph">
