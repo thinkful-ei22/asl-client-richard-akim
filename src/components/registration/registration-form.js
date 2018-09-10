@@ -1,7 +1,7 @@
 import React from 'react';
 import {Field, reduxForm, focus} from 'redux-form';
 import {registerUser} from '../../actions/users';
-import Input from './input';
+import Input from '../input';
 import {required, nonEmpty, matches, length, isTrimmed} from '../validators';
 const usernameLength = length({max: 15});
 const passwordLength = length({min: 10, max: 72});
