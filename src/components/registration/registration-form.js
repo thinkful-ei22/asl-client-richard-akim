@@ -17,99 +17,45 @@ export class RegistrationForm extends React.Component {
     //   .then(() => this.props.dispatch(login(username, password)));
   }
 
-  // validate(values) {
-  //   const errors = {};
-  //   if(!values.username) {
-  //     errors.username = 'Required';
-  //   } else if (values.username.length > 15) {
-  //     errors.username = 'Must be 15 characters or less';
-  //   }
-
-  //   if(!values.password) {
-  //     errors.password = 'Required';
-  //   } else if (values.password.length < 10) {
-  //     errors.password = 'Must be 10 characters or more';
-  //   }
-
-  //   if(!values.name) {
-  //     errors.name = 'Required';
-  //   }
-
-  //   return errors;
-  // }
-
-  // renderField({
-  //   input,
-  //   label,
-  //   type,
-  //   meta: { touched, error, warning }
-  // }) {
-  //   return (
-  //     <div>
-  //       <label>{label}</label>
-  //       <div>
-  //         <input {...input} placeholder={label} type={type} />
-  //         {touched &&
-  //           ((error && <span>{error}</span>) ||
-  //             (warning && <span>{warning}</span>))}
-  //       </div>
-  //     </div>
-  //   );
-  // }
-
   render() {
-    const { handleSubmit, pristine, reset, submitting } = this.props;
-    
+    const {handleSubmit, pristine, submitting} = this.props;
 
     return (
       <form
         onSubmit={handleSubmit(values => 
           this.onSubmit(values))}
       >
-        {/* <label htmlFor="name">Name</label>
-        <Field name="name" 
-          component={this.renderField}
-          type="text" 
-        />
-        <label htmlFor="username">Username</label>
-        <Field component={this.renderField} type="text" name="username" label="Username" />
-        <label htmlFor="password">Password</label>
-        <Field component={this.renderField}  type="text" name="password" />
-        <label htmlFor="name">Confrim Password</label>
-        <Field component={this.renderField} type="text" name="passwordConfirm" /> */}
         <label htmlFor="name">Name</label>
-        <Field 
-          name="name" 
-          component={Input}
-          type="text"
+        <Field name="name" 
+          component={Input} 
+          type="text" 
           validate={[required]} 
         />
-
         <label htmlFor="username">Username</label>
         <Field 
-          component={Input} 
+          component={Input}
           type="text" 
           name="username" 
           validate={[required, nonEmpty, isTrimmed, usernameLength]}
         />
-
         <label htmlFor="password">Password</label>
         <Field 
-          component={Input}  
+          component={Input}
           type="text" 
           name="password" 
           validate={[required, passwordLength, isTrimmed]}
         />
-
         <label htmlFor="name">Confrim Password</label>
         <Field 
           component={Input} 
           type="text" 
-          name="passwordConfirm"
+          name="passwordConfirm" 
           validate={[required, nonEmpty, matchesPassword]} 
         />
-
-        <button type="button" disabled={pristine || submitting} onClick={reset}>Register</button>
+        <button 
+          type="submit"
+          disabled={pristine || submitting}
+        >Register</button>
       </form>
     );
   }
