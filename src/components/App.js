@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
-import { LandingPage } from './landing/landing-page';
+import {connect} from 'react-redux';
+import { Route, withRouter } from 'react-router-dom';
+import LandingPage from './landing/landing-page';
 import LoginPage from './login/login-page';
-import {Dashboard} from './dashboard/dashboard';
+import Dashboard from './dashboard/dashboard';
 import HeaderBar from './header-bar';
 import {refreshAuthToken} from '../actions/auth';
-import {RegistrationPage} from './registration/registration-page';
+import RegistrationPage from './registration/registration-page';
 
 class App extends Component {
 
@@ -43,11 +44,17 @@ class App extends Component {
         <HeaderBar />
         <Route path="/" component={LandingPage} exact />
         <Route path="/login" component={LoginPage} exact />
-        <Route exact path="/register" component={RegistrationPage} />
-        <Route exact path="/dashboard" component={Dashboard} />
+        <Route path="/register" component={RegistrationPage} exact/>
+        <Route path="/dashboard" component={Dashboard} exact/>
       </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = state => ({
+  hasAuthToken: state.auth.authToken !== null,
+  loggedIn: state.auth.currentUser !== null
+});
+
+// Deal with update blocking - https://reacttraining.com/react-router/web/guides/dealing-with-update-blocking
+export default withRouter(connect(mapStateToProps)(App));

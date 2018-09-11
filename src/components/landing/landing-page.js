@@ -1,7 +1,12 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
+import {connect} from 'react-redux';
 
 export function LandingPage(props) {
+  
+  if (props.loggedIn) {
+    return <Redirect to="/dashboard" />;
+  }
   return (
     <div>
       <main>
@@ -25,3 +30,11 @@ export function LandingPage(props) {
     </div>
   );
 }
+
+const mapStateToProps = state => {
+  return ({
+    loggedIn: state.auth.currentUser !== null
+  });
+};
+
+export default connect(mapStateToProps)(LandingPage);

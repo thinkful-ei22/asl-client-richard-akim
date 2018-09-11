@@ -27,7 +27,7 @@ export class HeaderBar extends React.Component {
     }
     return (
       <div className="header-bar">
-        <h1>Sign Language App</h1>
+        <h1><Link to='/'>Sign Language App</Link></h1>
         {loginButton}
         {logOutButton}
       </div>
