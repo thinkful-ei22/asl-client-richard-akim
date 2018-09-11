@@ -40,7 +40,7 @@ export class QuestionPage extends React.Component{
             onClick={e => this.nextQuestion(e)}
             className="question-btn"
           >
-            <span>Next Question!</span>
+            <span>Next</span>
           </button>
         </div>   
       );
