@@ -12,8 +12,8 @@ export function LandingPage(props) {
       <main>
         <div>
           <img
-            src="../images/landing-page-pic.jpg"
-            alt="miniature brain in hand"
+            src="https://blog.umhb.edu/wp-content/uploads/2017/03/asl-love.jpg"
+            alt="asl for love"
           />
         </div>
         <p className="ad-paragraph">
