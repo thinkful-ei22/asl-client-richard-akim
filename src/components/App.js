@@ -5,6 +5,7 @@ import LandingPage from './landing/landing-page';
 import LoginPage from './login/login-page';
 import Dashboard from './dashboard/dashboard';
 import HeaderBar from './header-bar';
+import QuestionPage from './questions/question-page';
 import {refreshAuthToken} from '../actions/auth';
 import RegistrationPage from './registration/registration-page';
 
@@ -46,6 +47,7 @@ class App extends Component {
         <Route path="/login" component={LoginPage} exact />
         <Route path="/register" component={RegistrationPage} exact/>
         <Route path="/dashboard" component={Dashboard} exact/>
+        <Route path="/question" component={QuestionPage} exact/>
       </div>
     );
   }
