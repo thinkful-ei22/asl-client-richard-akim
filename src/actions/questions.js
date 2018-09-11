@@ -15,6 +15,16 @@ export const fetchQuestionError = (error) => ({
   error
 });
 
+export const CORRECT_GUESS = 'CORRECT_GUESS';
+export const correctGuess = () => ({
+  type: CORRECT_GUESS,
+});
+
+export const WRONG_GUESS = 'WRONG_GUESS';
+export const wrongGuess = () => ({
+  type: WRONG_GUESS
+});
+
 
 export const fetchQuestion = () => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
