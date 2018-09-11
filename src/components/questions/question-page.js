@@ -38,8 +38,9 @@ export class QuestionPage extends React.Component{
           <h3>{`YOU ARE WINNAR! The answer was indeed ${this.props.question.answer.toUpperCase()}`}</h3>
           <button 
             onClick={e => this.nextQuestion(e)}
+            className="question-btn"
           >
-              Next Question!
+            <span>Next Question!</span>
           </button>
         </div>   
       );
@@ -49,8 +50,9 @@ export class QuestionPage extends React.Component{
           <h3>{`Incorrect! The answer was ${this.props.question.answer.toUpperCase()}`}</h3>
           <button 
             onClick={e => this.nextQuestion(e)}
+            className="question-btn"
           >
-              Next Question!
+            <span>Next</span>
           </button>
         </div>   
       );
@@ -60,26 +62,33 @@ export class QuestionPage extends React.Component{
           <input 
             type="text"
             ref={input=> (this.input = input)}
+            required
+            className="question-input"
           />
           <div>
             <button 
               type="submit"
+              className="question-btn"
             >
-                Submit
+              <span>Submit</span>
             </button> 
           </div>
         </form>
       );
     }
     return (
-      <section className="question">
+      <section>
         <div>
           <h3>WHAT'S THAT SIGN MON!</h3>
         </div>
-        <div>
-          {loading}
-          {question}
-          {form} 
+        <div className="question-parent">
+          <div className="question">
+            {loading}
+            {question}
+          </div>
+          <div className="question-response">
+            {form} 
+          </div>
         </div>
       </section>
     );
