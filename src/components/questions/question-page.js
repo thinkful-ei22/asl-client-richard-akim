@@ -1,11 +1,9 @@
 import React from "react";
 import requiresLogin from "../requires-login";
 import { connect } from "react-redux";
-import {
-  fetchQuestion,
-  correctGuess,
-  wrongGuess
-} from "../../actions/questions";
+import { fetchQuestion, fetchRecord } from "../../actions/questions";
+
+import RecordDisplay from "./record-display";
 
 export class QuestionPage extends React.Component {
   componentDidMount() {
@@ -18,13 +16,15 @@ export class QuestionPage extends React.Component {
   onSubmit(e) {
     e.preventDefault();
     const value = this.input.value;
-    value.toLowerCase() === this.props.question.answer
-      ? this.props.dispatch(correctGuess())
-      : this.props.dispatch(wrongGuess());
-    this.input.value = "";
-    this.input.focus();
+
+    const stats = {
+      questionId: this.props.question.id,
+      correct: value.toLowerCase() === this.props.question.answer
+    };
+    this.props.dispatch(fetchRecord(stats));
   }
   render() {
+    console.log(this.props.question);
     let loading;
     let question;
     let form;
@@ -46,6 +46,7 @@ export class QuestionPage extends React.Component {
           <button onClick={e => this.nextQuestion(e)} className="question-btn">
             <span>Next</span>
           </button>
+          <RecordDisplay />
         </div>
       );
     } else if (this.props.wrong) {
@@ -56,6 +57,7 @@ export class QuestionPage extends React.Component {
           <button onClick={e => this.nextQuestion(e)} className="question-btn">
             <span>Next</span>
           </button>
+          <RecordDisplay />
         </div>
       );
     } else {
