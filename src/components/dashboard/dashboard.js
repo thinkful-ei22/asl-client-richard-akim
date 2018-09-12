@@ -9,6 +9,7 @@ export class Dashboard extends React.Component{
     e.preventDefault();
     this.props.dispatch(resetQuestions());
   }
+  
   render() {
     return (
       <div>
