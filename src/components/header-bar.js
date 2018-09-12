@@ -18,10 +18,10 @@ export class HeaderBar extends React.Component {
     let dashboard;
     if (this.props.loggedIn) {
       logOut = (
-        <a href="/" onClick={() => this.logOut()}>Log out</a>
+        <a className='header-link' href="/" onClick={() => this.logOut()}>Log out</a>
       );
       dashboard = (
-        <Link to='/dashboard'>Dashboard</Link>
+        <Link className='header-link' to='/dashboard'>Dashboard</Link>
       );
     }
     if (!this.props.loggedIn) {
