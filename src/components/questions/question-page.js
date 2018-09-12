@@ -1,9 +1,9 @@
-import React from "react";
-import requiresLogin from "../requires-login";
-import { connect } from "react-redux";
-import { fetchQuestion, fetchRecord } from "../../actions/questions";
+import React from 'react';
+import requiresLogin from '../requires-login';
+import { connect } from 'react-redux';
+import { fetchQuestion, fetchRecord } from '../../actions/questions';
 
-import RecordDisplay from "./record-display";
+import RecordDisplay from './record-display';
 
 export class QuestionPage extends React.Component {
   componentDidMount() {
@@ -16,15 +16,15 @@ export class QuestionPage extends React.Component {
   onSubmit(e) {
     e.preventDefault();
     const value = this.input.value;
-
+    
     const stats = {
-      questionId: this.props.question.id,
+      questionId: this.props.question._id,
       correct: value.toLowerCase() === this.props.question.answer
     };
     this.props.dispatch(fetchRecord(stats));
   }
   render() {
-    console.log(this.props.question);
+    
     let loading;
     let question;
     let form;
