@@ -251,3 +251,24 @@ ul {
   font-size: 20px;
   text-align: center;
 }
+
+
+/*---------------------------------------------------------------------------------
+  Dashboard styles
+---------------------------------------------------------------------------------*/
+
+.fixed {
+  position: fixed;
+  display: block;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: #8bc34a solid 10em;
+  background-color: #689f38;
+  padding: 3.5em;
+}
+
+.red {
+  background-color: red;
+}

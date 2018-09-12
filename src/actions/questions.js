@@ -79,6 +79,11 @@ export const sendAnswer = stats => (dispatch, getState) => {
     });
 };
 
+export const RESET_QUESTIONS_SUCCESS = "RESET_QUESTIONS_SUCCESS";
+export const resetQuestionsSuccess = () => ({
+  type: RESET_QUESTIONS_SUCCESS,
+});
+
 export const resetQuestions = () => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
   dispatch(fetchQuestionRequest());
@@ -92,4 +97,4 @@ export const resetQuestions = () => (dispatch, getState) => {
       dispatch(fetchQuestionError(err));
     });
   
-}
+};
