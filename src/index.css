@@ -161,6 +161,23 @@ ul {
   Question Page styles
 ---------------------------------------------------------------------------------*/
 
+@media screen and (max-width: 411px) {
+  .question,
+  .question-response {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    width: 100%;
+    border-radius: 5px;
+    padding: 2px 16px;
+    background-color: #8bc34a;
+    height: 100%;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+}
 .question,
 .question-response {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
