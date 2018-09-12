@@ -78,3 +78,18 @@ export const sendAnswer = stats => (dispatch, getState) => {
       dispatch(fetchQuestionError(err));
     });
 };
+
+export const resetQuestions = () => (dispatch, getState) => {
+  const authToken = getState().auth.authToken;
+  dispatch(fetchQuestionRequest());
+  fetch(`${API_BASE_URL}/question/reset`, {
+    method: "PUT",
+    headers: {
+      Authorization: `Bearer ${authToken}`
+    }
+  })
+    .catch(err => {
+      dispatch(fetchQuestionError(err));
+    });
+  
+}

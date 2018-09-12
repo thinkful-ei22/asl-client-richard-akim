@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 
 class RecordDisplay extends React.Component {
   render() {
-    console.log(this.props.currentRecord);
     if (this.props.currentRecord) {
       return (
         <p>{`Got this one correct ${
