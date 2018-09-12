@@ -4,7 +4,7 @@ import {
   FETCH_QUESTION_SUCCESS,
   CORRECT_GUESS,
   WRONG_GUESS,
-  FETCH_RECORD_SUCCESS
+  SEND_ANSWER_SUCCESS
 } from "../actions/questions";
 
 const initialState = {
@@ -28,8 +28,7 @@ export default function questionReducer(state = initialState, action) {
         loading: false,
         error: null,
         correctGuess: false,
-        wrongGuess: false,
-        record: null
+        wrongGuess: false
       });
     case FETCH_QUESTION_ERROR:
       return Object.assign({}, state, {
@@ -44,10 +43,10 @@ export default function questionReducer(state = initialState, action) {
       return Object.assign({}, state, {
         wrongGuess: true
       });
-    case FETCH_RECORD_SUCCESS:
+    case SEND_ANSWER_SUCCESS:
       return {
         ...state,
-        record: action.payload,
+        data: action.payload,
         loading: false
       };
     default:
