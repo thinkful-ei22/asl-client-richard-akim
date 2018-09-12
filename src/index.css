@@ -146,11 +146,11 @@ ul {
   float: right;
 }
 
-@media screen and (max-width: 500px) {
-  .header a {
+@media screen and (max-width: 768px) {
+  .header-bar a {
     float: none;
     display: block;
-    text-align: left;
+    text-align: center;
   }
   .header-right {
     float: none;
@@ -162,6 +162,26 @@ ul {
 ---------------------------------------------------------------------------------*/
 
 @media screen and (max-width: 411px) {
+  html,
+  body {
+    height: 94%;
+    width: 98%;
+    padding: 0px;
+  }
+
+  #asl-love-img {
+    width: 100%;
+    min-height: 150px;
+  }
+
+  #header-login-link {
+    display: none;
+  }
+
+  .question-parent {
+    height: 600px;
+  }
+
   .question,
   .question-response {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -170,7 +190,9 @@ ul {
     border-radius: 5px;
     padding: 2px 16px;
     background-color: #8bc34a;
-    height: 100%;
+    min-height: 250px;
+    height: 600px;
+    height: 40%;
     margin-left: 10px;
     margin-right: 10px;
   }
@@ -255,7 +277,7 @@ ul {
 }
 
 .question-parent {
-  height: 12em;
+  height: 13em;
 }
 
 .question-response h3 {
@@ -267,4 +289,26 @@ ul {
   background-position: 10px 10px;
   font-size: 20px;
   text-align: center;
+}
+
+/*---------------------------------------------------------------------------------
+  Registration Page styles
+---------------------------------------------------------------------------------*/
+
+@media screen and (max-width: 768px) {
+  a {
+    text-decoration: underline;
+  }
+}
+
+#registration-form,
+.login-form {
+  margin-bottom: 50px;
+}
+
+.form-input {
+  background-color: white;
+  background-position: 10px 10px;
+  margin-bottom: 10px;
+  font-size: 20px;
 }

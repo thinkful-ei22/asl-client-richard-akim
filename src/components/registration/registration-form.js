@@ -21,7 +21,10 @@ export class RegistrationForm extends React.Component {
     const { handleSubmit, pristine, submitting } = this.props;
 
     return (
-      <form onSubmit={handleSubmit(values => this.onSubmit(values))}>
+      <form
+        id="registration-form"
+        onSubmit={handleSubmit(values => this.onSubmit(values))}
+      >
         <label htmlFor="name">Name</label>
         <Field
           name="name"

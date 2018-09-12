@@ -1,9 +1,8 @@
-import React from 'react';
-import {connect} from 'react-redux';
-import {clearAuth} from '../actions/auth';
-import {clearAuthToken} from '../local-storage';
-import {Link} from 'react-router-dom';
-
+import React from "react";
+import { connect } from "react-redux";
+import { clearAuth } from "../actions/auth";
+import { clearAuthToken } from "../local-storage";
+import { Link } from "react-router-dom";
 
 export class HeaderBar extends React.Component {
   logOut() {
@@ -18,20 +17,28 @@ export class HeaderBar extends React.Component {
     let dashboard;
     if (this.props.loggedIn) {
       logOut = (
-        <a className='header-link' href="/" onClick={() => this.logOut()}>Log out</a>
+        <a className="header-link" href="/" onClick={() => this.logOut()}>
+          Log out
+        </a>
       );
       dashboard = (
-        <Link className='header-link' to='/dashboard'>Dashboard</Link>
+        <Link className="header-link" to="/dashboard">
+          Dashboard
+        </Link>
       );
     }
     if (!this.props.loggedIn) {
       logIn = (
-        <Link to='/login'>Login</Link>
+        <Link to="/login" id="header-login-link">
+          Login
+        </Link>
       );
     }
     return (
       <header className="header-bar">
-        <h1><Link to='/'>Sign Language App</Link></h1>
+        <h1>
+          <Link to="/">Sign Language App</Link>
+        </h1>
         <ul className="header-right">
           <li>{logIn}</li>
           <li>{dashboard}</li>
