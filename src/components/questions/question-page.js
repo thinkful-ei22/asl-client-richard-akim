@@ -18,7 +18,7 @@ export class QuestionPage extends React.Component {
     const value = this.input.value;
 
     const stats = {
-      questionId: this.props.question.id,
+      questionId: this.props.question._id,
       correct: value.toLowerCase() === this.props.question.answer
     };
     this.props.dispatch(fetchRecord(stats));
