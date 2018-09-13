@@ -51,10 +51,11 @@ export class Dashboard extends React.Component{
       record = (
         <div>
           <span>
-            {`You got ${this.props.record.correct} correct total  |  `}
-          </span>
-          <span>
-            {`You got ${this.props.record.wrong} incorrect total`}
+            {`Overall Record: ${
+              isNaN(this.props.record.correct/(this.props.record.correct + this.props.record.wrong))
+                ? 100
+                : Math.round(this.props.record.correct/(this.props.record.correct + this.props.record.wrong)*100)
+            }%`}
           </span>
         </div>
       );

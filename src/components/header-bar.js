@@ -37,7 +37,7 @@ export class HeaderBar extends React.Component {
     return (
       <header className="header-bar">
         <h1>
-          <Link to="/">Sign Language App</Link>
+          <Link to="/">uh-SIGN-ment</Link>
         </h1>
         <ul className="header-right">
           <li>{logIn}</li>

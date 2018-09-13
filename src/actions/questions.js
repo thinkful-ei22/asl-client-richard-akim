@@ -1,4 +1,5 @@
 import { API_BASE_URL } from "../config";
+import { fetchRecord } from "./records";
 
 export const FETCH_QUESTION_REQUEST = "FETCH_QUESTION_REQUEST";
 export const fetchQuestionRequest = () => ({
@@ -56,7 +57,7 @@ export const sendAnswer = stats => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
   const { correct } = stats;
   dispatch(fetchQuestionRequest());
-  fetch(`${API_BASE_URL}/question`, {
+  return fetch(`${API_BASE_URL}/question`, {
     method: "POST",
     headers: {
       Authorization: `Bearer ${authToken}`,
@@ -87,12 +88,15 @@ export const resetQuestionsSuccess = () => ({
 export const resetQuestions = () => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
   dispatch(fetchQuestionRequest());
-  fetch(`${API_BASE_URL}/question/reset`, {
+  return fetch(`${API_BASE_URL}/question/reset`, {
     method: "PUT",
     headers: {
       Authorization: `Bearer ${authToken}`
     }
   })
+    .then(() => {
+      dispatch(fetchRecord());
+    })
     .catch(err => {
       dispatch(fetchQuestionError(err));
     });
