@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import requiresLogin from '../requires-login';
 import {Link} from 'react-router-dom';
 import { resetQuestions } from '../../actions/questions';
+import { fetchRecord } from '../../actions/records';
 
 export class Dashboard extends React.Component{
   constructor(props) {
@@ -12,6 +13,9 @@ export class Dashboard extends React.Component{
       reset: false,
       display: null
     };
+  }
+  componentDidMount() {
+    this.props.dispatch(fetchRecord());
   }
   handleReset(e) {
     e.preventDefault();
@@ -42,7 +46,19 @@ export class Dashboard extends React.Component{
         </div>
       );
     }
-
+    let record;
+    if(this.props.record) {
+      record = (
+        <div>
+          <span>
+            {`You got ${this.props.record.correct} correct total  |  `}
+          </span>
+          <span>
+            {`You got ${this.props.record.wrong} incorrect total`}
+          </span>
+        </div>
+      );
+    }
     return (
       <div>
         {resetConfirm}
@@ -51,6 +67,7 @@ export class Dashboard extends React.Component{
         <div>
           <p>{this.state.display}</p>
           <button onClick={(e) => this.handleResetOption(e)} className="question-btn">Reset Progress</button>
+          {record}
         </div>
       </div>
     );
@@ -61,7 +78,8 @@ const mapStateToProps = state => {
   
   return {
     loggedIn: state.auth.currentUser !== null,
-    currentUser: state.auth.currentUser
+    currentUser: state.auth.currentUser,
+    record: state.record.record,
   };
 };
 

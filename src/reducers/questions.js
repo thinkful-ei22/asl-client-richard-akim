@@ -13,7 +13,6 @@ const initialState = {
   loading: false,
   correctGuess: false,
   wrongGuess: false,
-  record: null
 };
 
 export default function questionReducer(state = initialState, action) {
