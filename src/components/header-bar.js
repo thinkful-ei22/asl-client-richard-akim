@@ -47,7 +47,7 @@ export class HeaderBar extends React.Component {
       );
       register = (
         <Link className="right" to="/register">
-          Login
+          Register
         </Link>
       );
     }
