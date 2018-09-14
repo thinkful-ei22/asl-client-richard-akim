@@ -22,4 +22,4 @@ https://sign-app-client.herokuapp.com/dashboard
 
 ## Screenshots
 
-![Question Page](./screenshots/mainPage.png)
+![Question Page](./screenshots/question-page.png)
