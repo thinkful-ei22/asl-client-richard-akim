@@ -47,6 +47,7 @@ export class Dashboard extends React.Component{
       );
     }
     let record;
+    let improve;
     if(this.props.record) {
       record = (
         <div>
@@ -59,6 +60,16 @@ export class Dashboard extends React.Component{
           </span>
         </div>
       );
+      improve = this.props.record.needImprove.map((question, index) => {
+        return (
+          <li key={index}>
+            <img src={question.imageURL} alt={question.imageDescription} />
+            <div>
+              {`Record for ${question.answer.toUpperCase()}: ${question.correct/(question.correct+question.incorrect)*100}%`}
+            </div>
+          </li>
+        );
+      });
     }
     return (
       <div>
@@ -69,6 +80,10 @@ export class Dashboard extends React.Component{
           <p>{this.state.display}</p>
           <button onClick={(e) => this.handleResetOption(e)} className="question-btn">Reset Progress</button>
           {record}
+        </div>
+        <div>
+          {improve ? <h4>You need to improve on these!</h4>: null}
+          {improve}
         </div>
       </div>
     );
