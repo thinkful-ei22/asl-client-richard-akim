@@ -31,6 +31,7 @@ export class QuestionPage extends React.Component {
     } else {
       question = (
         <img
+          id="question-image"
           src={this.props.question.imageURL}
           alt={this.props.question.imageDescription}
         />
