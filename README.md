@@ -20,7 +20,7 @@ to see your progress!
 ## Deployed Version
 
 You can fine a live version:
-https://sign-app-client.herokuapp.com/dashboard
+[Live Version](https://sign-app-client.herokuapp.com/dashboard)
 
 ## Features 
 Users can login and start learning sign language. Users are presented with a dashboard that will keep track of their records and stats with every word and able to make sure they are focusing on the words/letters then need to be.
@@ -38,9 +38,9 @@ Users are given feedback and they are learning using a spaced repetition algorit
 
 ## Server and Client
 
-![Client-side](https://github.com/thinkful-ei22/asl-client-richard-akim)
+Here is a link to our [Client-side](https://github.com/thinkful-ei22/asl-client-richard-akim)
 
-![Server-side](https://github.com/thinkful-ei22/asl-server-richard-akim)
+Here is a link to our [Server-side](https://github.com/thinkful-ei22/asl-server-richard-akim)
 
 
 ## Tech Stack

@@ -67,10 +67,10 @@ export class Dashboard extends React.Component {
               )
                 ? 100
                 : Math.round(
-                    (this.props.record.correct /
+                  (this.props.record.correct /
                       (this.props.record.correct + this.props.record.wrong)) *
                       100
-                  )
+                )
             }%`}
           </span>
         </div>
@@ -86,7 +86,7 @@ export class Dashboard extends React.Component {
             <div className="improvement-stat">
               {`Record for ${question.answer.toUpperCase()}: ${parseInt(
                 (question.correct / (question.correct + question.incorrect)) *
-                  100
+                  100, 10
               )}%`}
             </div>
           </li>

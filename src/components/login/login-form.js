@@ -41,7 +41,7 @@ export class LoginForm extends React.Component {
           validate={[required, nonEmpty]}
         />
         <button
-          className="tripFormButton"
+          className="question-btn"
           disabled={this.props.pristine || this.props.submitting}
         >
           Log in

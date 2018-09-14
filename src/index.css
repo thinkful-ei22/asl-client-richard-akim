@@ -146,9 +146,9 @@ html {
 
 html,
 body,
-main {
+ {
   height: 94%;
-  width: 98%;
+  width: 94%;
   padding: 0px;
 }
 
@@ -218,14 +218,15 @@ h1 {
 }
 
 .side-drawer {
-  height: 70px;
+  height: 10%;
   width: 25%;
   max-width: 150px;
-  background: white;
+  background: #689f38;
   box-shadow: 3px 0px 3px rgba(0, 0, 0, 0.5);
+  /* background: rgba(0, 0, 0, 0.3); */
   position: absolute;
   top: 136px;
-  left: 70%;
+  right: 0;
   z-index: 200;
   border-bottom-left-radius: 3px;
   border-bottom-right-radius: 3px;
@@ -449,7 +450,8 @@ body {
 }
 
 #asl-love-img {
-  width: 100%;
+  width: 80%;
+  margin: 0 auto;
   min-height: 150px;
 }
 
@@ -498,7 +500,7 @@ body {
 
 @media screen and (min-width: 412px) {
   #asl-love-img {
-    width: 650px;
+    height: 100%;
   }
 }
 
@@ -544,6 +546,11 @@ body {
   margin-bottom: 50px;
 }
 
+.ad-paragraph {
+  width: 80%;
+  margin: 0 auto;
+}
+
 .form-input {
   background-color: white;
   background-position: 10px 10px;
@@ -555,4 +562,8 @@ body {
   a {
     text-decoration: underline;
   }
+}
+
+.form-error {
+  color: red;
 }
