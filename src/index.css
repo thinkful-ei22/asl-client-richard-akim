@@ -145,7 +145,8 @@ html {
 }
 
 html,
-body {
+body,
+main {
   height: 94%;
   width: 98%;
   padding: 0px;
