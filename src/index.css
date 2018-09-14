@@ -140,15 +140,15 @@ ul {
 }
 main,
 html {
-  overflow: hidden;
+  overflow: auto;
   position: fixed;
 }
 
 html,
 body,
  {
-  height: 94%;
-  width: 94%;
+  height: 100%;
+  width: 100%;
   padding: 0px;
 }
 
@@ -168,12 +168,12 @@ h1 {
   }
   html,
   body {
-    height: 600px;
+    height: 100%;
   }
 }
 @media screen and (min-width: 768px) {
   .question-page-container {
-    height: 500px;
+    height: 100%;
   }
   html,
   body {
@@ -247,7 +247,7 @@ h1 {
     float: none;
     display: block;
     text-align: left;
-    border: 1px solid black;
+    border: 1px solid black
   }
 
 }
@@ -591,7 +591,7 @@ body {
   }
 
   body {
-    overflow: hidden;
+    overflow: auto;
   }
 }
 

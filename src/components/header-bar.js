@@ -26,6 +26,7 @@ export class HeaderBar extends React.Component {
     let logOut;
     let logIn;
     let dashboard;
+    let register;
     if (this.props.loggedIn) {
       logOut = (
         <a className="right" href="/" onClick={() => this.logOut()}>
@@ -44,11 +45,17 @@ export class HeaderBar extends React.Component {
           Login
         </Link>
       );
+      register = (
+        <Link className="right" to="/register">
+          Login
+        </Link>
+      );
     }
     return (
       <div className="topnav" id="myTopnav">
         <Link className="active" to="/">uh-SIGN-ment</Link>
         {logIn}
+        {register}
         {dashboard}
         {logOut}
         <a 
