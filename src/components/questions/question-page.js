@@ -31,6 +31,7 @@ export class QuestionPage extends React.Component {
     } else {
       question = (
         <img
+          id="question-image"
           src={this.props.question.imageURL}
           alt={this.props.question.imageDescription}
         />
@@ -76,7 +77,7 @@ export class QuestionPage extends React.Component {
       );
     }
     return (
-      <section>
+      <section className="question-page-container">
         <div>
           <h3>WHAT'S THAT SIGN MON!</h3>
         </div>

@@ -127,80 +127,195 @@ ul {
 }
 
 /*---------------------------------------------------------------------------------
+  General Styles
+---------------------------------------------------------------------------------*/
+.backdrop {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 100;
+  top: 0;
+  left: 0;
+}
+main,
+html {
+  overflow: hidden;
+  position: fixed;
+}
+
+html,
+body {
+  height: 94%;
+  width: 98%;
+  padding: 0px;
+}
+
+.question-page-container {
+  overflow: auto;
+  display: block;
+  height: 40%;
+}
+
+h1 {
+  font-size: 1.5em;
+}
+
+@media screen and (min-width: 412px) {
+  .question-page-container {
+    height: 500px;
+  }
+  html,
+  body {
+    height: 600px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .question-page-container {
+    height: 500px;
+  }
+  html,
+  body {
+    position: initial;
+  }
+}
+
+/*---------------------------------------------------------------------------------
   Header styles
 ---------------------------------------------------------------------------------*/
+
 .header-bar {
   overflow: hidden;
   background-color: #689f38;
   padding: 20px 10px;
+  height: 80px;
+  display: flex;
+  align-items: center;
 }
 
-.header-bar a {
-  float: left;
-  text-align: center;
-  padding: 12px;
-  text-decoration: none;
-  border-radius: 4px;
+/*Side Drawer Stuff=============================================================*/
+.hamburger {
+  height: 28px;
+  width: 35px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 0;
+}
+
+.hamburger:focus {
+  outline: none;
+}
+
+.hamburger-patty {
+  width: 35px;
+  height: 3px;
+  background: gainsboro;
+}
+
+.side-drawer {
+  height: 70px;
+  width: 25%;
+  max-width: 150px;
+  background: white;
+  box-shadow: 3px 0px 3px rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 136px;
+  left: 70%;
+  z-index: 200;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  transform: translateX(150%);
+  transition: transform 0.3s ease-out;
+}
+
+.side-drawer.show {
+  transform: translateX(0);
+}
+
+.side-drawer-nav {
+  list-style-type: none;
+}
+
+.side-drawer-link,
+.side-drawer-login-link {
+  display: inline;
+}
+
+.side-drawer-link:hover,
+.side-drawer-link:active,
+.side-drawer-login-link:hover,
+.side-drawer-login-link:active {
+  color: orangered;
+}
+/*Side Drawer Stuff END =========================================================*/
+
+h1 {
+  margin: 0;
+}
+
+h1 a {
+  margin-right: 3rem;
+}
+
+.header-link {
+  display: none;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.header-right {
+  float: none;
 }
 
 .header-right {
   float: right;
 }
 
-@media screen and (max-width: 768px) {
+#header-login-link {
+  display: none;
+}
+
+h1 a {
+  text-decoration: none;
+}
+
+@media screen and (min-width: 768px) {
+  #header-login-link {
+    display: block;
+  }
+
+  .header-link {
+    display: block;
+  }
+  .side-drawer,
+  .hamburger,
+  .hamburger-patty {
+    display: none;
+  }
   .header-bar a {
     float: none;
     display: block;
     text-align: center;
   }
-  .header-right {
-    float: none;
+
+  .header-bar a {
+    float: left;
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    border-radius: 4px;
   }
 }
 
 /*---------------------------------------------------------------------------------
   Question Page styles
 ---------------------------------------------------------------------------------*/
-
-@media screen and (max-width: 411px) {
-  html,
-  body {
-    height: 94%;
-    width: 98%;
-    padding: 0px;
-  }
-
-  #asl-love-img {
-    width: 100%;
-    min-height: 150px;
-  }
-
-  #header-login-link {
-    display: none;
-  }
-
-  .question-parent {
-    height: 600px;
-  }
-
-  .question,
-  .question-response {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    transition: 0.3s;
-    width: 100%;
-    border-radius: 5px;
-    padding: 2px 16px;
-    background-color: #8bc34a;
-    min-height: 250px;
-    height: 600px;
-    height: 40%;
-    margin-left: 10px;
-    margin-right: 10px;
-  }
-}
-
-@media screen and (max-width: 768px) {
-}
 .question,
 .question-response {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -210,16 +325,6 @@ ul {
   padding: 2px 16px;
   background-color: #8bc34a;
   height: 100%;
-  margin-left: 10px;
-  margin-right: 10px;
-}
-.question {
-  float: left;
-  margin-left: 30px;
-}
-.question-response {
-  float: right;
-  margin-right: 30px;
 }
 
 .question-response form {
@@ -236,7 +341,7 @@ ul {
   text-align: center;
   font-size: 20px;
   padding: 20px;
-  width: 140px;
+  width: 125px;
   transition: all 0.5s;
   cursor: pointer;
   margin: 5px;
@@ -278,7 +383,7 @@ ul {
 }
 
 .question-parent {
-  height: 13em;
+  height: 28em;
 }
 
 .question-response h3 {
@@ -292,21 +397,41 @@ ul {
   text-align: center;
 }
 
-
 /*---------------------------------------------------------------------------------
   Dashboard styles
 ---------------------------------------------------------------------------------*/
 
 .fixed {
   position: fixed;
-  display: block;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
   bottom: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  border: #8bc34a solid 10em;
   background-color: #689f38;
-  padding: 3.5em;
+  z-index: 300;
+  margin: 0;
+  background-size: contain;
+}
+
+li .improvement-img {
+  width: 6em;
+  height: 6em;
+}
+
+#improve-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.improvement-stat {
+  font-size: 12px;
+  color: black;
 }
 
 .red {
@@ -315,12 +440,103 @@ ul {
 /*---------------------------------------------------------------------------------
   Registration Page styles
 ---------------------------------------------------------------------------------*/
+html,
+body {
+  height: 94%;
+  width: 98%;
+  padding: 0px;
+}
 
-@media screen and (max-width: 768px) {
-  a {
-    text-decoration: underline;
+#asl-love-img {
+  width: 100%;
+  min-height: 150px;
+}
+
+.question,
+.question-response {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  width: 100%;
+  border-radius: 5px;
+  padding: 2px 16px;
+  background-color: #8bc34a;
+  height: 100px;
+  height: 40%;
+  float: none;
+}
+
+.question {
+  margin-bottom: 10px;
+}
+@media screen and (min-width: 412px) {
+  .question {
+    margin-bottom: 50px;
+  }
+  .question,
+  .question-response {
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.2);
+  }
+
+  #question-image {
+    height: 250px;
+    width: 250px;
+    margin-top: 5%;
+  }
+
+  .question-btn {
+    width: 180px;
+  }
+
+  .question-parent {
+    height: 800px;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
+
+@media screen and (min-width: 412px) {
+  #asl-love-img {
+    width: 650px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .question,
+  .question-response {
+    display: block;
+    width: 47%;
+    height: 50%;
+    float: none;
+  }
+
+  .question-parent {
+    overflow: hidden;
+  }
+
+  .question {
+    float: left;
+  }
+
+  #question-image {
+    margin-top: 16%;
+  }
+
+  .question-response {
+    float: right;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  body {
+    overflow: hidden;
+  }
+}
+
+/*---------------------------------------------------------------------------------
+  Registration Page styles
+---------------------------------------------------------------------------------*/
 
 #registration-form,
 .login-form {
@@ -332,4 +548,10 @@ ul {
   background-position: 10px 10px;
   margin-bottom: 10px;
   font-size: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  a {
+    text-decoration: underline;
+  }
 }

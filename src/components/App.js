@@ -1,16 +1,17 @@
-import React, { Component } from 'react';
-import {connect} from 'react-redux';
-import { Route, withRouter } from 'react-router-dom';
-import LandingPage from './landing/landing-page';
-import LoginPage from './login/login-page';
-import Dashboard from './dashboard/dashboard';
-import HeaderBar from './header-bar';
-import QuestionPage from './questions/question-page';
-import {refreshAuthToken} from '../actions/auth';
-import RegistrationPage from './registration/registration-page';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { Route, withRouter } from "react-router-dom";
+import LandingPage from "./landing/landing-page";
+import LoginPage from "./login/login-page";
+import Dashboard from "./dashboard/dashboard";
+import HeaderBar from "./header-bar";
+import QuestionPage from "./questions/question-page";
+import { refreshAuthToken } from "../actions/auth";
+import RegistrationPage from "./registration/registration-page";
+import SideDrawer from "./side-drawer/side-drawer";
+import Backdrop from "./side-drawer/backdrop";
 
 class App extends Component {
-
   componentDidUpdate(prevProps) {
     if (!prevProps.loggedIn && this.props.loggedIn) {
       // When we are logged in, refresh the auth token periodically
@@ -39,15 +40,26 @@ class App extends Component {
 
     clearInterval(this.refreshInterval);
   }
+
   render() {
     return (
       <div className="App">
         <HeaderBar />
+        <Route
+          path="/"
+          component={
+            /*this.props.mobile.hamburgerMenuOpen ? */ SideDrawer /*: null*/
+          }
+        />
+        <Route
+          path="/"
+          component={this.props.mobile.hamburgerMenuOpen ? Backdrop : null}
+        />
         <Route path="/" component={LandingPage} exact />
         <Route path="/login" component={LoginPage} exact />
-        <Route path="/register" component={RegistrationPage} exact/>
-        <Route path="/dashboard" component={Dashboard} exact/>
-        <Route path="/question" component={QuestionPage} exact/>
+        <Route path="/register" component={RegistrationPage} exact />
+        <Route path="/dashboard" component={Dashboard} exact />
+        <Route path="/question" component={QuestionPage} exact />
       </div>
     );
   }
@@ -55,7 +67,8 @@ class App extends Component {
 
 const mapStateToProps = state => ({
   hasAuthToken: state.auth.authToken !== null,
-  loggedIn: state.auth.currentUser !== null
+  loggedIn: state.auth.currentUser !== null,
+  mobile: state.mobile
 });
 
 // Deal with update blocking - https://reacttraining.com/react-router/web/guides/dealing-with-update-blocking
