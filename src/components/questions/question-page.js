@@ -77,7 +77,7 @@ export class QuestionPage extends React.Component {
       );
     }
     return (
-      <section>
+      <section className="question-page-container">
         <div>
           <h3>WHAT'S THAT SIGN MON!</h3>
         </div>

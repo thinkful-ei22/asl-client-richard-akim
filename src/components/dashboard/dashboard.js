@@ -110,7 +110,11 @@ export class Dashboard extends React.Component {
           </button>
           {record}
         </div>
-        <div>{improve ? <h4>You need to improve on these!</h4> : null}</div>
+        <div>
+          {improve && improve.length > 0 ? (
+            <h4>You need to improve on these!</h4>
+          ) : null}
+        </div>
         <ol id="improve-list">{improve}</ol>
       </div>
     );
