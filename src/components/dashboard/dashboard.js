@@ -96,7 +96,7 @@ export class Dashboard extends React.Component {
     return (
       <div>
         {resetConfirm}
-        <h3>{`Welcome back to uh-SIGN-ment ${this.props.currentUser.name}`}</h3>
+        <h3>{`Welcome to uh-SIGN-ment ${this.props.currentUser.name}`}</h3>
         <Link to="/question">
           <button className="question-btn">Question Page</button>
         </Link>

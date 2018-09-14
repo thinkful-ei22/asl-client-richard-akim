@@ -11,6 +11,16 @@ export class HeaderBar extends React.Component {
     clearAuthToken();
   }
 
+  navIcon() {
+    let x = document.getElementById('myTopnav');
+    console.log(x);
+    if (x.className === 'topnav') {
+      x.className += ' responsive';
+    } else {
+      x.className = 'topnav';
+    }
+  }
+
   render() {
     // Only render the log out button if we are logged in
     let logOut;
@@ -18,38 +28,35 @@ export class HeaderBar extends React.Component {
     let dashboard;
     if (this.props.loggedIn) {
       logOut = (
-        <a className="header-link" href="/" onClick={() => this.logOut()}>
+        <a className="right" href="/" onClick={() => this.logOut()}>
           Log out
         </a>
       );
       dashboard = (
-        <Link className="header-link" to="/dashboard">
+        <Link className="right" to="/dashboard">
           Dashboard
         </Link>
       );
     }
     if (!this.props.loggedIn) {
       logIn = (
-        <Link to="/login" id="header-login-link">
+        <Link className="right" to="/login">
           Login
         </Link>
       );
     }
     return (
-      <header className="header-bar">
-        <h1>
-          <Link to="/">uh-SIGN-ment</Link>
-        </h1>
-        <div className="spacer" />
-        <div>
-          <HamburgerButton />
-        </div>
-        <ul className="header-right">
-          <li>{logIn}</li>
-          <li>{dashboard}</li>
-          <li>{logOut}</li>
-        </ul>
-      </header>
+      <div className="topnav" id="myTopnav">
+        <Link className="active" to="/">uh-SIGN-ment</Link>
+        {logIn}
+        {dashboard}
+        {logOut}
+        <a 
+          className="icon"
+          onClick={() => this.navIcon()}>
+          <i className="fa fa-bars"></i>
+        </a>
+      </div>
     );
   }
 }
