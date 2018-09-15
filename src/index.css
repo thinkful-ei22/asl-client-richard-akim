@@ -556,7 +556,7 @@ body {
   }
 }
 
-@media screen and (max-width: 412px) {
+@media screen and (max-width: 800px) {
   #asl-love-img {
     width: 80%;
   }
