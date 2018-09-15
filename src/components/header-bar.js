@@ -47,7 +47,7 @@ export class HeaderBar extends React.Component {
       );
       register = (
         <Link className="right" to="/register">
-          Login
+          Register
         </Link>
       );
     }
@@ -56,8 +56,9 @@ export class HeaderBar extends React.Component {
         <Link className="active" to="/">uh-SIGN-ment</Link>
         {logIn}
         {register}
-        {dashboard}
         {logOut}
+        {dashboard}
+        
         <a 
           className="icon"
           onClick={() => this.navIcon()}>
