@@ -508,7 +508,7 @@ body {
 }
 
 #asl-love-img {
-  width: 80%;
+  width: 800px;
   margin: 0 auto;
   min-height: 150px;
 }
@@ -556,9 +556,9 @@ body {
   }
 }
 
-@media screen and (min-width: 412px) {
+@media screen and (max-width: 412px) {
   #asl-love-img {
-    height: 100%;
+    width: 80%;
   }
 }
 
@@ -591,7 +591,7 @@ body {
   }
 
   body {
-    overflow: auto;
+    overflow: scroll;
   }
 }
 

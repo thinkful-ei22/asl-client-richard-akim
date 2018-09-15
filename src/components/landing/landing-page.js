@@ -17,7 +17,6 @@ export function LandingPage(props) {
           />
         </div>
         <p className="ad-paragraph">
-          {" "}
           Welcome to uh-SIGN-ment! A learning app designed to teach you the
           basics of American Sign Language! We've built this application with
           the best learning techniques in mind to help you retain as much
@@ -25,9 +24,9 @@ export function LandingPage(props) {
           you'll reinforce your knowledge of <strong>ASL</strong>, and be able
           to see your progress!
         </p>
-        <p>Not a member?</p>{" "}
+        <p>Not a member?</p>
         <Link to="/register">
-          <button>Register now!</button>
+          Register now!
         </Link>
       </main>
     </div>
