@@ -1,3 +1,5 @@
+
+
 ## Table of Contents
 
 - [Description of App](#description)
@@ -5,6 +7,7 @@
 - [Link to deplyed version](#deployed-version)
 - [Server and Client](#server-and-client)
 - [Tech Stack](#tech-stack)
+- [Future Plans](#future-plans)
 
 
 
@@ -28,6 +31,14 @@ Users can login and start learning sign language. Users are presented with a das
 Users are given feedback and they are learning using a spaced repetition algorithm. 
 
 ## Screenshots
+`Screenshots`
+![Login](./screenshots/wireframe1.png)
+
+![Question Page](./screenshots/wireframe2.png)
+
+![Dashboard](./screenshots/wireframe3.png)
+
+`Live App`
 
 ![Landing Page](./screenshots/landing-page.png)
 
@@ -41,10 +52,19 @@ Users are given feedback and they are learning using a spaced repetition algorit
 Here is a link to our [Client-side](https://github.com/thinkful-ei22/asl-client-richard-akim)
 
 Here is a link to our [Server-side](https://github.com/thinkful-ei22/asl-server-richard-akim)
+[![Build Status](https://travis-ci.org/thinkful-ei22/asl-server-richard-akim.svg?branch=master)](https://travis-ci.org/thinkful-ei22/asl-server-richard-akim)
 
 
 ## Tech Stack
 
 Frontend: Created with create-react-app, styling done with CSS. Html. React-redux to keep a store of the state. Thunk middleware for async actions. Redux forms for form inputs.
 
-Backend: Node.js and express. Integrated with TravisCI. Database: MongoDB from mlab. Database queries made with mongoose. 
+Backend: Node.js and Express. Passport and JWTs
+
+Database: MongoDB
+
+
+
+## Future Plans
+
+We would like to add a seperation between types of questions where you can pick the genre of whatever you are learning be it the alphabet or even commonly used everyday signs.

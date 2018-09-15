@@ -141,7 +141,7 @@ ul {
 main,
 html {
   overflow: auto;
-  position: fixed;
+  /* position: fixed; */
 }
 
 html,

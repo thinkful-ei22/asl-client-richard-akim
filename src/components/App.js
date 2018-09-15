@@ -45,16 +45,16 @@ class App extends Component {
     return (
       <div className="App">
         <HeaderBar />
-        <Route
+        {/* <Route
           path="/"
           component={
-            /*this.props.mobile.hamburgerMenuOpen ? */ SideDrawer /*: null*/
+           SideDrawer
           }
         />
         <Route
           path="/"
           component={this.props.mobile.hamburgerMenuOpen ? Backdrop : null}
-        />
+        /> */}
         <Route path="/" component={LandingPage} exact />
         <Route path="/login" component={LoginPage} exact />
         <Route path="/register" component={RegistrationPage} exact />
