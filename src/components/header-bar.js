@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import { clearAuth } from "../actions/auth";
 import { clearAuthToken } from "../local-storage";
 import { Link } from "react-router-dom";
-import HamburgerButton from "./side-drawer/hamburger-button";
 
 export class HeaderBar extends React.Component {
   logOut() {
