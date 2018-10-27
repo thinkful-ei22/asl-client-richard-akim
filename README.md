@@ -102,15 +102,6 @@ Database: MongoDB
     incorrect: { type: Number, default: 0 }
   }]
 });
-
-UserSchema.set("toObject", {
-  virtuals: true, // include built-in virtual `id`
-  versionKey: false, // remove `__v` version key
-  transform: (doc, ret) => {
-    delete ret._id; // delete `_id`
-    delete ret.password;
-  }
-}
 ```
 ### Question Schema
 ```
