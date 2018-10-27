@@ -1,15 +1,14 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { Route, withRouter } from "react-router-dom";
-import LandingPage from "./landing/landing-page";
-import LoginPage from "./login/login-page";
-import Dashboard from "./dashboard/dashboard";
-import HeaderBar from "./header-bar";
-import QuestionPage from "./questions/question-page";
-import { refreshAuthToken } from "../actions/auth";
-import RegistrationPage from "./registration/registration-page";
-import SideDrawer from "./side-drawer/side-drawer";
-import Backdrop from "./side-drawer/backdrop";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Route, withRouter } from 'react-router-dom';
+import LandingPage from './landing/landing-page';
+import LoginPage from './login/login-page';
+import Dashboard from './dashboard/dashboard';
+import HeaderBar from './header-bar';
+import QuestionPage from './questions/question-page';
+import { refreshAuthToken } from '../actions/auth';
+import RegistrationPage from './registration/registration-page';
+
 
 class App extends Component {
   componentDidUpdate(prevProps) {
@@ -45,16 +44,6 @@ class App extends Component {
     return (
       <div className="App">
         <HeaderBar />
-        {/* <Route
-          path="/"
-          component={
-           SideDrawer
-          }
-        />
-        <Route
-          path="/"
-          component={this.props.mobile.hamburgerMenuOpen ? Backdrop : null}
-        /> */}
         <Route path="/" component={LandingPage} exact />
         <Route path="/login" component={LoginPage} exact />
         <Route path="/register" component={RegistrationPage} exact />
