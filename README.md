@@ -7,6 +7,8 @@
 - [Link to deplyed version](#deployed-version)
 - [Server and Client](#server-and-client)
 - [Tech Stack](#tech-stack)
+- [Data Models](#data-models)
+- [API Endpoints](#api-endpoints)
 - [Future Plans](#future-plans)
 
 
@@ -62,6 +64,129 @@ Frontend: Created with create-react-app, styling done with CSS. Html. React-redu
 Backend: Node.js and Express. Passport and JWTs
 
 Database: MongoDB
+
+## Data Models
+### User Schema
+```
+{
+  username: {
+    type: String,
+    required: true,
+    unique: true
+  },
+  password: {
+    type: String,
+    required: true
+  },
+  name: { type: String, default: "" },
+  questions: [
+    {
+      questionId: { type: mongoose.Schema.Types.ObjectId, ref: "Question" },
+      imageURL: String,
+      imageDescription: String,
+      answer: String,
+      memoryStrength: { type: Number, default: 1 },
+      next: Number,
+      correct: { type: Number, default: 0 },
+      incorrect: { type: Number, default: 0 }
+    }
+  ],
+  head: { type: Number, default: 0 },
+  totalCorrect: { type:Number, default: 0}, 
+  totalWrong : { type:Number, default:0 },
+  needImprove : [{
+    imageURL: String,
+    imageDescription: String,
+    answer: String,
+    correct: { type: Number, default: 0 },
+    incorrect: { type: Number, default: 0 }
+  }]
+});
+```
+### Question Schema
+```
+{
+  imageURL: String,
+  imageDescription: String,
+  answer: String
+}
+```
+## API Endpoints
+All requests and responses are in JSON
+### Users
+`POST` request
+```
+{
+  username,
+  password,
+  name,
+}
+```
+Returns 
+```
+{
+  username,
+  name
+}
+```
+`GET` request to `/progress`
+```
+{
+  totalCorrect,
+  totalWrong,
+  needImprove
+}
+```
+### Authentication
+`POST` request to `/login`
+```
+{
+  username,
+  password
+}
+```
+Returns
+```
+{
+  authToken
+}
+```
+`POST` request to `/refresh` submits a token for a new token
+```
+{
+  authToken
+}
+```
+Returns
+```
+{
+  authToken
+}
+```
+### Questions
+`GET` request
+```
+{
+  imageURL,
+  imageDescription,
+  answer
+}
+```
+`PUT` request to `/reset` to reset User's question array
+`POST` request 
+```
+{
+  correct(bool)
+}
+```
+Return 
+```
+{
+  imageURL,
+  imageDescription,
+  answer
+}
+```
 
 
 

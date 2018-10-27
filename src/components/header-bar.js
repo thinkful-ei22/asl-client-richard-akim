@@ -1,8 +1,8 @@
-import React from "react";
-import { connect } from "react-redux";
-import { clearAuth } from "../actions/auth";
-import { clearAuthToken } from "../local-storage";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { connect } from 'react-redux';
+import { clearAuth } from '../actions/auth';
+import { clearAuthToken } from '../local-storage';
+import { Link } from 'react-router-dom';
 
 export class HeaderBar extends React.Component {
   logOut() {
@@ -12,7 +12,6 @@ export class HeaderBar extends React.Component {
 
   navIcon() {
     let x = document.getElementById('myTopnav');
-    console.log(x);
     if (x.className === 'topnav') {
       x.className += ' responsive';
     } else {
