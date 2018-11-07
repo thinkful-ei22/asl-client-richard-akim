@@ -28,6 +28,9 @@ export function LandingPage(props) {
         <Link to="/register">
           Register now!
         </Link>
+        <p><u>Demo Account:</u></p>
+        <p><strong>Username:</strong> testuser</p>
+        <p><strong>Password:</strong> helloworld</p>
       </main>
     </div>
   );
